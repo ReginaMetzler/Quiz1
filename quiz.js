@@ -194,5 +194,17 @@ function gradeQuiz() {
     againBtn.style.display = 'inline-block';
 }
 
-// Start
-showQuestion(0);
+// Intro logic
+const introContainer = document.getElementById('intro-container');
+const quizForm = document.getElementById('quiz-form');
+const startBtn = document.getElementById('start-btn');
+if (startBtn) {
+    startBtn.onclick = function() {
+        introContainer.style.display = 'none';
+        quizForm.style.display = 'block';
+        showQuestion(0);
+    };
+} else {
+    // fallback: if no intro, start immediately
+    showQuestion(0);
+}
